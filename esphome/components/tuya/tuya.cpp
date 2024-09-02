@@ -216,10 +216,12 @@ void Tuya::handle_command_(uint8_t command, uint8_t version, const uint8_t *buff
       }
       break;
     case TuyaCommandType::WIFI_RESET:
-      ESP_LOGE(TAG, "WIFI_RESET is not handled");
+      ESP_LOGV(TAG, "Handling WIFI_RESET");
+      this->send_empty_command_(TuyaCommandType::WIFI_RESET);
       break;
     case TuyaCommandType::WIFI_SELECT:
-      ESP_LOGE(TAG, "WIFI_SELECT is not handled");
+      ESP_LOGV(TAG, "Handling WIFI_SELECT");
+      this->send_empty_command_(TuyaCommandType::WIFI_SELECT);
       break;
     case TuyaCommandType::DATAPOINT_DELIVER:
       break;
